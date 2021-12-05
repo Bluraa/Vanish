@@ -1,0 +1,11 @@
+name: Vanish
+version: '${project.version}'
+main: at.blura.vanish.Vanish
+api-version: 1.16
+authors: [ Blura ]
+description: Simple Vanish Plugin
+
+commands:
+  vanish:
+    aliases:
+      - v
