@@ -20,6 +20,7 @@ public final class Vanish extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new PlayerConnectionListener(), this);
         getCommand("vanish").setExecutor(new VanishCommand(this));
+
         Bukkit.getConsoleSender().sendMessage("§a§lVanish Plugin §awurde erfolgreich gestartet!");
     }
 
