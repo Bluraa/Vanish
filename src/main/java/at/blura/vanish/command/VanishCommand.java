@@ -37,11 +37,11 @@ public class VanishCommand implements CommandExecutor {
             if(!VanishPlayer.containsVanishPlayer(uuid)) {
                 VanishPlayer vanishPlayer = new VanishPlayer(uuid, vanish);
                 vanishPlayer.hidePlayer().register();
-                player.sendMessage(vanish.getVanishedMessage());
+                player.sendMessage(vanish.getPrefix() + vanish.getVanishedMessage());
             } else {
                 VanishPlayer vanishPlayer = VanishPlayer.getVanishPlayer(uuid);
                 vanishPlayer.showPlayer().remove();
-                player.sendMessage(vanish.getShowedMessage());
+                player.sendMessage(vanish.getPrefix() + vanish.getShowedMessage());
             }
         } else if(args.length == 1) {
             if(!sender.hasPermission("vanish.command.other")) {

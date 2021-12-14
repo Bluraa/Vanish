@@ -23,7 +23,6 @@ public class VanishPlayer {
         this.vanish = vanish;
         this.vanishPlayerUUID = vanishPlayerUUID;
         this.vanishPlayer = Bukkit.getPlayer(vanishPlayerUUID);
-        Player player;
     }
 
     public VanishPlayer register() {
@@ -40,32 +39,28 @@ public class VanishPlayer {
 
     public VanishPlayer hidePlayer(Player player) {
         if(!player.hasPermission("vanish.bypass") && player.canSee(vanishPlayer)) {
-            vanishPlayer.hidePlayer(vanish, player);
+            player.hidePlayer(vanish, vanishPlayer);
         }
         return this;
     }
 
     public VanishPlayer hidePlayer() {
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            if(!onlinePlayer.hasPermission("vanish.bypass") && onlinePlayer.canSee(vanishPlayer)) {
-                vanishPlayer.hidePlayer(vanish, onlinePlayer);
-            }
+            hidePlayer(onlinePlayer);
         }
         return this;
     }
 
     public VanishPlayer showPlayer(Player player) {
         if(!player.hasPermission("vanish.bypass") && !player.canSee(vanishPlayer)) {
-            vanishPlayer.showPlayer(vanish, player);
+            player.showPlayer(vanish, vanishPlayer);
         }
         return this;
     }
 
     public VanishPlayer showPlayer() {
         for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            if(!onlinePlayer.hasPermission("vanish.bypass") && !onlinePlayer.canSee(vanishPlayer)) {
-                vanishPlayer.showPlayer(vanish, onlinePlayer);
-            }
+            showPlayer(onlinePlayer);
         }
         return this;
     }
